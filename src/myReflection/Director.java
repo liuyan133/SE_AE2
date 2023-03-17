@@ -6,11 +6,26 @@ package myReflection;
     (generating a ClassList object) and pass it to the administrator
  */
 public class Director implements Work{
+    private Course course = null;
+
+    public Director() {
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
 
     @Override
-    public void work() throws Exception {
+    public Course work() throws Exception {
         ClassList list  = new ClassList(2,30);
-        new Administrator().handleList(list);
+        Course course = new Administrator().handleList(list);
+        setCourse(course);
+        return null;
     }
 
 }

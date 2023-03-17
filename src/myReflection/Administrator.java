@@ -14,7 +14,7 @@ public class Administrator implements Work{
     handleList 处理清单，生成教师集合以及教师信息
     handleList processes lists, generates collections of teachers and teacher information
     */
-    public void handleList(ClassList list) throws Exception {
+    public Course handleList(ClassList list) throws Exception {
 
         int number = list.getTeacherNumber();
         int capacity = list.getRoomCapacity();
@@ -24,6 +24,10 @@ public class Administrator implements Work{
         List<Teacher> teacherLists = trainTeacher(staffLists);
 
         course = finishList(teacherLists,capacity);
+
+        work();
+
+        return course;
     }
 
     /*
@@ -82,7 +86,12 @@ public class Administrator implements Work{
     }
 
     @Override
-    public void work() throws Exception {
+    public Course work() throws Exception {
+
         Util.saveInfo(course);
+
+        return null;
     }
+
+
 }

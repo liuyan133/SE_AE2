@@ -1,5 +1,5 @@
 package myReflection;
 
 public interface Work {
-     public void work() throws Exception;
+     public Course work() throws Exception;
 }
